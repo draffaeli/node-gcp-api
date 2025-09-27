@@ -1,0 +1,3 @@
+runtime: nodejs20
+service: dev
+instance_class: F1
