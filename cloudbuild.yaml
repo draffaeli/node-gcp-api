@@ -1,0 +1,14 @@
+steps:
+  # Install dependencies
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+
+  # run test, optional
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["test"]
+
+  # Deploy to App Engine with de right app.yaml
+  - name: "gcr.io/google-appengine/exec-wrapper"
+    args: [
+      "gcloud", "app", "deploy", "$_APP_YAML", "--quiet"
+    ]
